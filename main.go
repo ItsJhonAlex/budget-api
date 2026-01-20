@@ -1,21 +1,25 @@
 package main
 
 import (
-	"log"
 	"net/http"
+
+	"github.com/itsjhonale/budget-api/internal/router"
+	"github.com/itsjhonale/budget-api/internal/utils"
 )
 
 func main() {
-	// Health check endpoint
-	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte("OK"))
-	})
+	// Inicializar logger
+	utils.InitLogger()
+	utils.InfoLogger.Println("Initializing Budget API...")
 
-	// Start server
+	// Configurar rutas
+	mux := router.SetupRoutes()
+
+	// Iniciar servidor
 	port := "8080"
-	log.Printf("Server starting on port %s", port)
-	if err := http.ListenAndServe(":"+port, nil); err != nil {
-		log.Fatal("Server failed to start:", err)
+	utils.InfoLogger.Printf("Server starting on port %s", port)
+
+	if err := http.ListenAndServe(":"+port, mux); err != nil {
+		utils.ErrorLogger.Fatal("Server failed to start:", err)
 	}
 }
