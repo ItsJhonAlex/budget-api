@@ -5,8 +5,23 @@ import (
 
 	"github.com/itsjhonale/budget-api/internal/router"
 	"github.com/itsjhonale/budget-api/internal/utils"
+
+	_ "github.com/itsjhonale/budget-api/docs"
 )
 
+// @title Budget API
+// @version 1.0
+// @description API para gestión de presupuestos y transacciones
+// @termsOfService http://swagger.io/terms/
+
+// @contact.name API Support
+// @contact.email support@budget-api.com
+
+// @license.name MIT
+// @license.url https://opensource.org/licenses/MIT
+
+// @host localhost:8080
+// @BasePath /
 func main() {
 	// Inicializar logger
 	utils.InitLogger()

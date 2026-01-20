@@ -1,0 +1,39 @@
+basePath: /
+definitions:
+  utils.Response:
+    properties:
+      data: {}
+      error:
+        type: string
+      message:
+        type: string
+      success:
+        type: boolean
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@budget-api.com
+    name: API Support
+  description: API para gestión de presupuestos y transacciones
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  termsOfService: http://swagger.io/terms/
+  title: Budget API
+  version: "1.0"
+paths:
+  /health:
+    get:
+      description: Verifica el estado del servicio
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.Response'
+      summary: Health check
+      tags:
+      - health
+swagger: "2.0"

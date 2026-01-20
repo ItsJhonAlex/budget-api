@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/itsjhonale/budget-api/internal/handlers"
+	httpSwagger "github.com/swaggo/http-swagger"
 )
 
 // SetupRoutes configura todas las rutas de la API
@@ -12,6 +13,9 @@ func SetupRoutes() *http.ServeMux {
 
 	// Health check
 	mux.HandleFunc("/health", handlers.HealthHandler)
+
+	// Swagger UI
+	mux.HandleFunc("/swagger/", httpSwagger.WrapHandler)
 
 	return mux
 }
