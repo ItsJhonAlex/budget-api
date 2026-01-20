@@ -6,10 +6,11 @@ import (
 )
 
 type Response struct {
-	Success bool        `json:"success"`
-	Data    interface{} `json:"data,omitempty"`
-	Error   string      `json:"error,omitempty"`
-	Message string      `json:"message,omitempty"`
+	Success   bool        `json:"success"`
+	Data      interface{} `json:"data,omitempty"`
+	Error     string      `json:"error,omitempty"`
+	ErrorCode ErrorCode   `json:"error_code,omitempty"`
+	Message   string      `json:"message,omitempty"`
 }
 
 // RespondJSON escribe una respuesta JSON
@@ -39,6 +40,15 @@ func RespondError(w http.ResponseWriter, status int, message string) {
 	RespondJSON(w, status, Response{
 		Success: false,
 		Error:   message,
+	})
+}
+
+// RespondAppError responde con un AppError que incluye código de error
+func RespondAppError(w http.ResponseWriter, err *AppError) {
+	RespondJSON(w, err.HTTPStatus, Response{
+		Success:   false,
+		Error:     err.Message,
+		ErrorCode: err.Code,
 	})
 }
 
