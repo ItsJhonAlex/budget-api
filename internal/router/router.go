@@ -3,7 +3,7 @@ package router
 import (
 	"net/http"
 
-	"github.com/itsjhonale/budget-api/internal/handlers"
+	"github.com/itsjhonalex/budget-api/internal/handlers"
 	httpSwagger "github.com/swaggo/http-swagger"
 )
 

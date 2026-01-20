@@ -3,10 +3,10 @@ package main
 import (
 	"net/http"
 
-	"github.com/itsjhonale/budget-api/internal/router"
-	"github.com/itsjhonale/budget-api/internal/utils"
+	"github.com/itsjhonalex/budget-api/internal/router"
+	"github.com/itsjhonalex/budget-api/internal/utils"
 
-	_ "github.com/itsjhonale/budget-api/docs"
+	_ "github.com/itsjhonalex/budget-api/docs"
 )
 
 // @title Budget API

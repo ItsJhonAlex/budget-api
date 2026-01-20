@@ -1,4 +1,4 @@
-module github.com/itsjhonale/budget-api
+module github.com/itsjhonalex/budget-api
 
 go 1.25.6
 

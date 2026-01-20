@@ -3,7 +3,7 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/itsjhonale/budget-api/internal/utils"
+	"github.com/itsjhonalex/budget-api/internal/utils"
 )
 
 // HealthHandler godoc
